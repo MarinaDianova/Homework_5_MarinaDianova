@@ -13,14 +13,15 @@ double[] GenerateArray(int size, int leftRange, int rightRange)
     var rand = new Random();
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = rand.Next(leftRange, rightRange) + Math.Round(rand.NextDouble(), 2, MidpointRounding.ToEven);
+        //array[i] = rand.Next(leftRange, rightRange) + Math.Round(rand.NextDouble(), 2, MidpointRounding.ToEven);
+        array[i] = Math.Round(rand.Next(leftRange, rightRange) + rand.NextDouble(), 2);
     }
     return array;
 }
 
 void PrintArray(double[] array)
 {
-    System.Console.WriteLine("[" + string.Join(", ", array) + "]");
+    System.Console.WriteLine("[" + string.Join("; ", array) + "]");
 }
 
 double FindMax(double[] array)
@@ -48,7 +49,6 @@ double FindMin(double[] array)
     }
     return min;
 }
-
 
 int size = GetNumber("Введите размер массива: ");
 int min = GetNumber("Введите левую границу генерации чисел: ");
